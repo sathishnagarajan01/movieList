@@ -1,0 +1,36 @@
+const url = 'https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc';
+const options = {
+  method: 'GET',
+  headers: {
+    accept: 'application/json',
+    Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI2NmZiMDU5NGRhNGYxNGFkYmE5YjRhZGQxM2Q3YjFkMSIsIm5iZiI6MTc0MjEyMjk5OS4zNTEsInN1YiI6IjY3ZDZhZmY3MzE1MzhkZTYwOGYxYTJiYyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.EtrbjWiEFeTNFs-C9eoBqUfvB199Nm0ZumIthGcDEOo'
+  }
+};
+
+fetch(url, options)
+  .then(res => res.json())
+  .then(json => console.log(json))
+  .catch(err => console.error(err));
+
+
+
+  {
+    "adult": false,
+    "backdrop_path": "/9nhjGaFLKtddDPtPaX5EmKqsWdH.jpg",
+    "genre_ids": [
+      10749,
+      878,
+      53
+    ],
+    "id": 950396,
+    "original_language": "en",
+    "original_title": "The Gorge",
+    "overview": "Two highly trained operatives grow close from a distance after being sent to guard opposite sides of a mysterious gorge. When an evil below emerges, they must work together to survive what lies within.",
+    "popularity": 17.738,
+    "poster_path": "/7iMBZzVZtG0oBug4TfqDb9ZxAOa.jpg",
+    "release_date": "2025-02-13",
+    "title": "The Gorge",
+    "video": false,
+    "vote_average": 7.771,
+    "vote_count": 1941
+  }

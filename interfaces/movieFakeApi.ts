@@ -16,4 +16,4 @@ interface MovieFakeApi {
     boxOffice: string;
     production: string;
     website: string;
-  }
+}

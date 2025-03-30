@@ -8,6 +8,7 @@ import { fetchMovies } from "@/services/movieApi";
 import SearchBox from "@/components/serachBox";
 import { icons } from "@/constants/icons";
 import { useEffect, useState } from "react";
+import { updateSearchCount } from "@/services/appwrite";
 
 const Search = () => {
     const [searchQuery, setSearchQuery] = useState('');
@@ -31,6 +32,12 @@ const Search = () => {
         },1000);
         return () => clearTimeout(timeoutId);
     }, [searchQuery]);
+
+    useEffect(() => {
+        if(movies?.length > 0 && movies?.[0]) {
+            updateSearchCount(searchQuery, movies[0]);
+        }
+    }, [movies]);
 
     return (
         <View style={styles.container}>

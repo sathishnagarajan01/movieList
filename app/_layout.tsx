@@ -1,11 +1,35 @@
-import { Stack } from "expo-router";
+import { AuthProvider, useAuth } from "@/providers/AuthProviders";
+import { Redirect, Stack } from "expo-router";
 import { StatusBar } from "react-native";
 
-export default function RootLayout() {
+
+const AuthGate = () => {
+    const { user } = useAuth();
+    if(user === null) {
+        return <Redirect href='/(auth)/login' />
+    }
+    return <Redirect href='/(tabs)' />
+}
+
+const StackScreen = () => {
     return (
         <>
             <StatusBar hidden={false} />
             <Stack>
+                <Stack.Screen
+                    name="index"
+                    options={{
+                        headerShown: false,
+                        title: 'Root Index'
+                    }}
+                />
+                <Stack.Screen
+                    name="(auth)"
+                    options={{
+                        headerShown: false,
+                        title: 'Login'
+                    }}
+                />
                 <Stack.Screen
                     name="(tabs)"
                     options={{
@@ -22,5 +46,14 @@ export default function RootLayout() {
                 />
             </Stack>
         </>
+    );
+}
+
+export default function RootLayout() {
+    return (
+        <AuthProvider>
+            <AuthGate />
+            <StackScreen />
+        </AuthProvider>
     );
 }

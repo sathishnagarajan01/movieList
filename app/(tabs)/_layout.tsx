@@ -32,6 +32,7 @@ const TabIcon = ({focused, icon, title}: any) => {
 const tabsLayout = () => {
     return (
         <Tabs
+            initialRouteName="index"
             screenOptions={{
                 tabBarShowLabel: false,
                 tabBarIconStyle: {
@@ -58,6 +59,7 @@ const tabsLayout = () => {
                 options={{
                     title: 'Home',
                     headerShown: false,
+                    animation: 'fade',
                     tabBarIcon: ({focused}) => (
                         <TabIcon
                             focused={focused}

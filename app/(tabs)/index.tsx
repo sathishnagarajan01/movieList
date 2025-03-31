@@ -1,4 +1,4 @@
-import {ActivityIndicator, FlatList, Image, SafeAreaView, ScrollView, StyleSheet, Text, TextInput, View } from "react-native";
+import {ActivityIndicator, Button, FlatList, Image, SafeAreaView, ScrollView, StyleSheet, Text, TextInput, View } from "react-native";
 import { StatusBar } from 'expo-status-bar';
 import { Link } from "expo-router";
 import { images } from "@/constants/images";
